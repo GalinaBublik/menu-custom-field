@@ -1,0 +1,80 @@
+.columns-2 {
+    margin-right: 300px;
+}
+
+.column1 {
+    float: left;
+    width: 100%;
+}
+.column2 {
+	float: right;
+    margin-right: -300px;
+    width: 280px;
+}
+
+textarea {
+	width: 100%;
+}
+
+label { 
+	font-size: 1em;
+	font-weight: bold;
+}
+
+input[type=radio] {
+	margin: 15px 5px;
+}
+
+.clearfix::after{
+  content:'';
+  display:block;
+  clear:both;
+}
+
+.col { display: block; float: left;}
+
+.header_table .col {
+    margin-left: 4px;
+}
+
+.col-10 {
+	width: 10%;
+}
+
+.col-20 {
+	width: 20%;
+}
+.col-30 {
+	width: 30%;
+}
+
+.portlet {
+	position: relative;
+	height: 30px;
+}
+
+.wp-core-ui .portlet.button, .wp-core-ui .portlet.button-secondary {
+	    width: 100%;
+	    height: 32px;
+}
+
+.ui-widget-header {
+	margin-top: 1px;
+	/*padding: 3px 5px;*/
+}
+.ui-widget-header.col-10{ 
+text-align: center;
+}
+
+
+.inner {
+	background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    position: relative;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+}
+
+.menu_template textarea {
+	text-indent: 0;
+}
