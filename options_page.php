@@ -11,10 +11,7 @@
 } ?>
 <div class='wrap'> 
 <h2>Options of Menu's custom fields </h2>
-<script>
-	var count = 1;
-    count = jQuery('.portlet').length+1;
-  </script>
+
 <h2 class="nav-tab-wrapper amcf-nav-tab-wrapper">
 	<?php $url = admin_url( ).'admin.php?page=menu_custom_fields_options'; ?>
 	<a href="<?php echo $url;?>&amp;tab=fields" class="nav-tab <?php if( !isset($_GET['tab']) || $_GET['tab']=='fields'){ echo 'nav-tab-active';} ?>">Fields</a>
@@ -23,7 +20,7 @@
 <div id="menu-options-body" class="metabox-holder columns-2">
 	<div class="column1">
 		<?php if( !isset($_GET['tab']) || $_GET['tab']=='fields'){  ?>
-		<form action="" method="post" id="form_options" class="" >
+		<form action="" method="post" id="form_options" class="" onSubmit="return checkRadio();">
 			<h3>Fields </h3>
 			<?php $fields = get_option( 'menu_custom_fieds' ); 
 			if($fields){ ?>
@@ -51,7 +48,7 @@
 						<?php } ?>
 						<span class="ui-widget-header portlet-header col col-10"><?php echo zeroise( $k[1], 2 ); ?></span>
 						<input type="text" name="<?php echo $key; ?>[label]" value="<?php echo $field['label']; ?>" class="col col-30"/>
-						<select name="<?php echo $key; ?>[type]" class="col col-20">
+						<select name="<?php echo $key; ?>[type]" class="col col-20 selectTypeField">
 							<option value="text" <?php selected('text', $field['type']); ?>>text</option>
 							<option value="checkbox" <?php selected('checkbox', $field['type']); ?>>checkbox</option>
 							<option value="image" <?php selected('image', $field['type']); ?>>image</option>
@@ -70,6 +67,20 @@
 		</form>
 
 		<script>
+			function checkRadio(){
+				var ret = true;
+				jQuery('.selectTypeField').each( function(){
+					if( (jQuery(this).val() == 'radio' || jQuery(this).val() == 'select') && jQuery(this).next().val()=='' ){
+						alert( 'Fill value for '+jQuery(this).val()+' field');
+						ret = false;
+						return false;
+					}
+
+				});
+				return ret;
+			}
+			var count = 1;
+		    count = jQuery('.portlet').length+1;
 			function buildLi(count){
 				if(count<10){
 			    	count = '0'+count;

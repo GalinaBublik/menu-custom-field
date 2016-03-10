@@ -11,7 +11,7 @@ Plugin URI:
 
 
     define( 'AMCF_ABSPATH', dirname( __FILE__ ) );
-	define( 'AMCF_RELPATH', plugins_url() . '/menu-custom-field'  );
+	define( 'AMCF_RELPATH', plugins_url() .'/'. basename(dirname(__FILE__))  );
 
 
 	register_deactivation_hook( __FILE__, 'amcf_deactivation_hook' );
